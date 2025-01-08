@@ -22,6 +22,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("gg.jte:jte:3.1.12")
     implementation("gg.jte:jte-spring-boot-starter-3:3.1.12")
+    implementation("org.projectlombok:lombok:1.18.36")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
