@@ -1,6 +1,7 @@
 package com.nerdmeeting.springbootjtehtmx.repository;
 
 import com.nerdmeeting.springbootjtehtmx.entity.Task;
+import jakarta.annotation.PostConstruct;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,5 +20,21 @@ public class TaskRepository {
     
     public boolean remove(String id) {
         return tasks.removeIf(task -> task.getId().equals(id));
+    }
+    
+    @PostConstruct
+    private void init() {
+        tasks.addAll(List.of(
+                new Task("Complete project proposal."),
+                new Task("Review code changes."),
+                new Task("Attend team meeting."),
+                new Task("Update documentation."),
+                new Task("Fix reported bugs."),
+                new Task("Prepare presentation slides."),
+                new Task("Respond to client emails."),
+                new Task("Run unit tests."),
+                new Task("Refactor legacy code."),
+                new Task("Plan next sprint.")
+        ));
     }
 }
