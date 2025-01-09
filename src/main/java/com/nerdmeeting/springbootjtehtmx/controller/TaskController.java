@@ -22,7 +22,7 @@ public class TaskController {
     @GetMapping
     public String index(Model model) {
         model.addAttribute("tasks", taskRepository.findAll());
-        return "index";
+        return "pages/tasks";
     }
     
     @PostMapping
