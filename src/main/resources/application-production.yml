@@ -2,3 +2,7 @@ gg:
   jte:
     developmentMode: false
     usePrecompiledTemplates: true
+logging:
+  level:
+    org.springframework.web: info
+    gg.jte: info
