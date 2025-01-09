@@ -6,9 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class TaskController {
@@ -32,5 +30,12 @@ public class TaskController {
         taskRepository.create(task);
         model.addAttribute("task", task);
         return "task-row";
+    }
+    
+    @DeleteMapping("/delete-task/{id}")
+    @ResponseBody
+    public void deleteTask(@PathVariable String id) {
+        boolean removed = taskRepository.remove(id);
+        log.info("Task with ID {} removed.", id);
     }
 }
