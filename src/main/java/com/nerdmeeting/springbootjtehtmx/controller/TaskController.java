@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("/tasks")
 public class TaskController {
     
     private static final Logger log = LoggerFactory.getLogger(TaskController.class);
@@ -18,13 +19,13 @@ public class TaskController {
         this.taskRepository = taskRepository;
     }
     
-    @GetMapping("/")
+    @GetMapping
     public String index(Model model) {
         model.addAttribute("tasks", taskRepository.findAll());
         return "index";
     }
     
-    @PostMapping("/add-task")
+    @PostMapping
     public String addTask(@RequestParam String description, Model model) {
         Task task = new Task(description);
         taskRepository.create(task);
@@ -32,7 +33,7 @@ public class TaskController {
         return "task-row";
     }
     
-    @DeleteMapping("/delete-task/{id}")
+    @DeleteMapping("/{id}")
     @ResponseBody
     public void deleteTask(@PathVariable String id) {
         boolean removed = taskRepository.remove(id);
