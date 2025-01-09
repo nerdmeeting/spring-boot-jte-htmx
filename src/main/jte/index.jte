@@ -25,7 +25,7 @@
                 </div>
                 <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                     <form
-                            hx-post="/add-task"
+                            hx-post="/tasks"
                             hx-target="#taskTableBody"
                             hx-swap="beforeend"
                             hx-on::after-request="this.reset()"
