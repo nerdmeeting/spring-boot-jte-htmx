@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/")
 public class TemplateController {
@@ -14,5 +16,12 @@ public class TemplateController {
     public String home(Model model) {
         model.addAttribute("username", "John Doe");
         return "pages/home";
+    }
+    
+    @GetMapping("/team")
+    public String team(Model model) {
+        List<String> teamMembers = List.of("Alice", "Jose", "Charlie", "Michell", "Lauris");
+        model.addAttribute("teamMembers", teamMembers);
+        return "pages/team";
     }
 }
