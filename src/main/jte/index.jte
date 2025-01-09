@@ -58,7 +58,9 @@
                             </tr>
                             </thead>
                             <tbody id="taskTableBody" class="divide-y divide-gray-800">
-                            
+                            @for(Task task : tasks)
+                                @template.task-row(task = task)
+                            @endfor
                             </tbody>
                         </table>
                     </div>
